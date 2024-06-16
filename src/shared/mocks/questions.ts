@@ -2,12 +2,6 @@ import { AnswerType, Question } from "../types/question";
 
 export const QUESTIONS: Question[] = [
   {
-    id: "4",
-    question: "Какой ваш любимый фильм?",
-    answerType: AnswerType.STRING,
-    answerOptions: [],
-  },
-  {
     id: "1",
     question: "Какой день недели?",
     answerType: AnswerType.RADIO,
@@ -20,6 +14,31 @@ export const QUESTIONS: Question[] = [
       "Суббота",
       "Воскресенье",
     ],
+  },
+  {
+    id: "10",
+    question: "Какие ваши любимые игры?",
+    answerType: AnswerType.CHECKBOX,
+    answerOptions: [
+      "Fortnite",
+      "Minecraft",
+      "League of Legends",
+      "World of Warcraft",
+      "Roblox",
+      "Apex Legends",
+    ],
+  },
+  {
+    id: "6",
+    question: "Какая ваша любимая музыка?",
+    answerType: AnswerType.TEXT,
+    answerOptions: [],
+  },
+  {
+    id: "4",
+    question: "Какой ваш любимый фильм?",
+    answerType: AnswerType.STRING,
+    answerOptions: [],
   },
   {
     id: "2",
@@ -62,12 +81,6 @@ export const QUESTIONS: Question[] = [
     answerOptions: [],
   },
   {
-    id: "6",
-    question: "Какая ваша любимая музыка?",
-    answerType: AnswerType.TEXT,
-    answerOptions: [],
-  },
-  {
     id: "7",
     question: "Какая ваша любимая книга?",
     answerType: AnswerType.TEXT,
@@ -83,19 +96,6 @@ export const QUESTIONS: Question[] = [
     id: "9",
     question: "Какая ваша любимая игра?",
     answerType: AnswerType.RADIO,
-    answerOptions: [
-      "Fortnite",
-      "Minecraft",
-      "League of Legends",
-      "World of Warcraft",
-      "Roblox",
-      "Apex Legends",
-    ],
-  },
-  {
-    id: "10",
-    question: "Какие ваши любимые игры?",
-    answerType: AnswerType.CHECKBOX,
     answerOptions: [
       "Fortnite",
       "Minecraft",

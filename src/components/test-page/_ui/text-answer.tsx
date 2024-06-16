@@ -12,11 +12,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/shared/ui/form";
-import { Input } from "@/shared/ui/input";
+} from "@/shared/ui/form";  
 import { Button } from "@/shared/ui/button";
+import { Textarea } from "@/shared/ui/textarea";
 
-interface IStringAnswerProps {
+interface ITextAnswerProps {
   qestion: string;
   id: string;
   setCurrentQuestion: () => void;
@@ -25,15 +25,15 @@ interface IStringAnswerProps {
 const FormSchema = z.object({
   answer: z
     .string()
-    .min(2, {
-      message: "Answer must be at least 2 characters.",
+    .min(10, {
+      message: "Answer must be at least 10 characters.",
     })
-    .max(50, {
-      message: "Answer must be less than 50 characters.",
+    .max(160, {
+      message: "Answer must be less than 160 characters.",
     }),
 });
 
-const StringAnswer: FC<IStringAnswerProps> = ({
+const TextAnswer: FC<ITextAnswerProps> = ({
   id,
   setCurrentQuestion,
   qestion,
@@ -60,7 +60,11 @@ const StringAnswer: FC<IStringAnswerProps> = ({
             <FormItem>
               <FormLabel>{qestion}</FormLabel>
               <FormControl>
-                <Input placeholder="Введите ответ" {...field} />
+                <Textarea
+                  placeholder="Введите ответ"
+                  className="resize-none"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -74,4 +78,4 @@ const StringAnswer: FC<IStringAnswerProps> = ({
   );
 };
 
-export default StringAnswer;
+export default TextAnswer;

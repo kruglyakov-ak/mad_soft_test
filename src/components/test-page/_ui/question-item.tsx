@@ -4,6 +4,8 @@ import { AnswerType } from "@/shared/types/question";
 import { FC, ReactNode } from "react";
 import RadioAnswers from "./radio-answer";
 import StringAnswer from "./string-answer";
+import TextAnswer from "./text-answer";
+import CheckboxAnswer from "./checkbox-answer";
 
 interface IQuestionItemProps {
   id: string;
@@ -32,9 +34,26 @@ const QuestionItem: FC<IQuestionItemProps> = ({
             answers={answers as [string, ...string[]]}
           />
         );
+      case AnswerType.CHECKBOX:
+        return (
+          <CheckboxAnswer
+            qestion={question}
+            answers={answers}
+            id={id}
+            setCurrentQuestion={setCurrentQuestion}
+          />
+        );
       case AnswerType.STRING:
         return (
           <StringAnswer
+            id={id}
+            qestion={question}
+            setCurrentQuestion={setCurrentQuestion}
+          />
+        );
+      case AnswerType.TEXT:
+        return (
+          <TextAnswer
             id={id}
             qestion={question}
             setCurrentQuestion={setCurrentQuestion}
