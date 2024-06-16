@@ -93,7 +93,7 @@ const CheckboxAnswer: FC<ICheckboxAnswerProps> = ({
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Ответить</Button>
       </form>
     </Form>
   );

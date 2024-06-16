@@ -1,16 +1,10 @@
-import { Question } from "@/shared/types/question";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { cn } from "@/shared/ui/utils";
-import React, { FC } from "react";
+import { FC } from "react";
 
-interface IQuestionCounterProps {
-  currentQuestion: number;
-  questions: Question[];
-}
+const QuestionCounter: FC = () => {
+  const { questions, currentQuestion } = useAppSelector(({ test }) => test);
 
-const QuestionCounter: FC<IQuestionCounterProps> = ({
-  questions,
-  currentQuestion,
-}) => {
   return (
     <div className="w-full flex gap-1">
       {questions.map((_, index) => (
@@ -20,7 +14,7 @@ const QuestionCounter: FC<IQuestionCounterProps> = ({
             "w-full h-2",
             currentQuestion === index
               ? "bg-red-800"
-              : currentQuestion < index 
+              : currentQuestion < index
                 ? "bg-gray-200"
                 : "bg-black",
           )}

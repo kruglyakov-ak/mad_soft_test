@@ -23,7 +23,6 @@ const QuestionItem: FC<IQuestionItemProps> = ({
   id,
 }) => {
   function getAnswersComponentByType(): ReactNode {
-    console.log(answerType);
     switch (answerType) {
       case AnswerType.RADIO:
         return (

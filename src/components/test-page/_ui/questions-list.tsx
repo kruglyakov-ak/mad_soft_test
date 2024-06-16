@@ -1,43 +1,53 @@
-import { QUESTIONS } from "@/shared/mocks/questions";
-import React, { Dispatch, FC, SetStateAction } from "react";
+"use client";
+
+import { FC } from "react";
 import QuestionItem from "./question-item";
 import { Button } from "@/shared/ui/button";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { resetState, setCurrentQuestion } from "@/store/slices/test";
 
-interface IQuestionsListProps {
-  currentQuestion: number;
-  setCurrentQuestion: Dispatch<SetStateAction<number>>;
-}
+const QuestionsList: FC = () => {
+  const dispatch = useAppDispatch();
+  const { questions, currentQuestion, time, deadline, isTimer } =
+    useAppSelector(({ test }) => test);
 
-const QuestionsList: FC<IQuestionsListProps> = ({
-  currentQuestion,
-  setCurrentQuestion,
-}) => {
-  return (
+  const resetTest = () => {
+    dispatch(resetState());
+  };
+
+  return questions.length === currentQuestion ||
+    (isTimer && deadline && deadline < Date.now()) ? (
+    <div className="w-full flex flex-col gap-2 items-center justify-center text-center pt-10">
+      <p className="w-full ">Тест завершен</p>
+      {isTimer && (
+        <p className="w-full ">
+          {deadline && deadline < Date.now()
+            ? "Время вышло"
+            : `Оставшееся время: ${time}`}
+        </p>
+      )}
+      <Button className="w-1/4" onClick={resetTest}>
+        Начать сначала
+      </Button>
+    </div>
+  ) : (
     <>
-      {QUESTIONS.map(
+      {questions.map(
         ({ answerType, id, question, answerOptions }, index) =>
           currentQuestion === index && (
             <QuestionItem
               key={id}
               answers={answerOptions}
               question={question}
-              setCurrentQuestion={() => setCurrentQuestion((prev) => prev + 1)}
+              setCurrentQuestion={() => dispatch(setCurrentQuestion(index + 1))}
               answerType={answerType}
               id={id}
             />
           ),
       )}
-
-      {QUESTIONS.length === currentQuestion && (
-        <div className="w-full flex flex-col gap-2 items-center justify-center text-center pt-10">
-          <p className="w-full ">Тест окончен</p>
-          <p className="w-full ">Оставшееся время: {}</p>
-          <Button className="w-1/4" onClick={() => setCurrentQuestion(0)}>
-            Начать сначала
-          </Button>
-        </div>
-      )}
     </>
+
   );
 };
 

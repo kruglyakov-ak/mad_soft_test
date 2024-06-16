@@ -1,28 +1,37 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import { setTime } from "@/store/slices/test";
+import { FC, useCallback, useEffect, useState } from "react";
 
-interface ITimerProps {
-  deadline: number;
-}
+const Timer: FC = () => {
+  const { deadline, time } = useAppSelector(({ test }) => test);
+  const dispatch = useAppDispatch();
 
-const Timer: FC<ITimerProps> = ({ deadline }) => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const getTime = () => {
-    const time = new Date(deadline - Date.now());
+  const getTime = useCallback(() => {
+    if (!deadline) return;
 
+    const time = new Date(deadline - Date.now());
+    dispatch(setTime(Math.floor((deadline - Date.now()) / 1000)));
     setMinutes(time.getMinutes());
     setSeconds(time.getSeconds());
-  };
+  }, [deadline, dispatch]);
 
   useEffect(() => {
     const interval = setInterval(() => getTime(), 1000);
 
+    if (time && time < 1) {
+      setMinutes(0);
+      setSeconds(0);
+      clearInterval(interval);
+    }
+
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [getTime, time]);
 
   const timer = `${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
 

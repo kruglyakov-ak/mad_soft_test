@@ -1,40 +1,24 @@
-'use client'
+"use client";
 
-import { FC, useState } from "react";
+import { FC } from "react";
 import Layout from "./_ui/layout";
 import Timer from "./_ui/timer";
 import QuestionCounter from "./_ui/question-counter";
 import QuestionsList from "./_ui/questions-list";
-import { Question } from "@/shared/types/question";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import StartSettings from "./_ui/startSettings";
 
-interface ITestPagePops {
-  questions: Question[];
-  isTimer: boolean;
-}
+const TestPage: FC = () => {
+  const { isTimer, isStarted } = useAppSelector(({ test }) => test);
 
-const TestPage: FC<ITestPagePops> = ({
-  isTimer,
-  questions,
-}) => {
-  const [currentQuestion, setCurrentQuestion] = useState(questions.length);
-
-
-  return (
+  return isStarted ? (
     <Layout
-      timer={isTimer && <Timer deadline={Date.now() + 30 * 60 * 1000} />}
-      questionCounter={
-        <QuestionCounter
-          questions={questions}
-          currentQuestion={currentQuestion}
-        />
-      }
-      questionList={
-        <QuestionsList
-          currentQuestion={currentQuestion}
-          setCurrentQuestion={setCurrentQuestion}
-        />
-      }
+      timer={isTimer && <Timer />}
+      questionCounter={<QuestionCounter />}
+      questionList={<QuestionsList />}
     />
+  ) : (
+    <StartSettings />
   );
 };
 
