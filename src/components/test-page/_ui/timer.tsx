@@ -3,7 +3,7 @@
 import { FC, useEffect, useState } from "react";
 
 interface ITimerProps {
-  deadline: number; 
+  deadline: number;
 }
 
 const Timer: FC<ITimerProps> = ({ deadline }) => {
@@ -21,7 +21,7 @@ const Timer: FC<ITimerProps> = ({ deadline }) => {
     const interval = setInterval(() => getTime(), 1000);
 
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const timer = `${minutes === 0 ? "00" : minutes}:${seconds === 0 ? "00" : seconds}`;

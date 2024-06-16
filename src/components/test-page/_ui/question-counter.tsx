@@ -7,7 +7,10 @@ interface IQuestionCounterProps {
   questions: Question[];
 }
 
-const QuestionCounter: FC<IQuestionCounterProps> = ({ questions,currentQuestion }) => {
+const QuestionCounter: FC<IQuestionCounterProps> = ({
+  questions,
+  currentQuestion,
+}) => {
   return (
     <div className="w-full flex gap-1">
       {questions.map((_, index) => (

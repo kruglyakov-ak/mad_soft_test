@@ -1,4 +1,4 @@
-import { Question } from "../../widgets/model/types";
+import { Question } from "../../components/test-page/model/types";
 
 export const QUESTIONS: Question[] = [
   {
