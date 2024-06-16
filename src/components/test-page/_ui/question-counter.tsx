@@ -1,6 +1,6 @@
+import { Question } from "@/shared/types/question";
 import { cn } from "@/shared/ui/utils";
 import React, { FC } from "react";
-import { Question } from "../model/types";
 
 interface IQuestionCounterProps {
   currentQuestion: number;
@@ -18,9 +18,9 @@ const QuestionCounter: FC<IQuestionCounterProps> = ({
           key={index}
           className={cn(
             "w-full h-2",
-            currentQuestion === index + 1
+            currentQuestion === index
               ? "bg-red-800"
-              : currentQuestion < index + 1
+              : currentQuestion < index 
                 ? "bg-gray-200"
                 : "bg-black",
           )}

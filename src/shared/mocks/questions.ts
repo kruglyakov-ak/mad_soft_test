@@ -1,10 +1,10 @@
-import { Question } from "../../components/test-page/model/types";
+import { AnswerType, Question } from "../types/question";
 
 export const QUESTIONS: Question[] = [
   {
     id: "1",
     question: "Какой день недели?",
-    answerType: "single",
+    answerType: AnswerType.SINGLE,
     answerOptions: [
       "Понедельник",
       "Вторник",
@@ -18,7 +18,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "2",
     question: "Какой месяц?",
-    answerType: "single",
+    answerType: AnswerType.SINGLE,
     answerOptions: [
       "Январь",
       "Февраль",
@@ -37,7 +37,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "3",
     question: "Какой ваш любимый цвет?",
-    answerType: "single",
+    answerType: AnswerType.SINGLE,
     answerOptions: [
       "Красный",
       "Синий",
@@ -51,33 +51,37 @@ export const QUESTIONS: Question[] = [
   {
     id: "4",
     question: "Какой ваш любимый фильм?",
-    answerType: "string",
+    answerType: AnswerType.STRING,
+    answerOptions: [],
   },
   {
     id: "5",
     question: "Какой ваш любимый инструмент?",
-    answerType: "string",
+    answerType: AnswerType.STRING,
+    answerOptions: [],
   },
   {
     id: "6",
     question: "Какая ваша любимая музыка?",
-    answerType: "text",
+    answerType: AnswerType.TEXT,
+    answerOptions: [],
   },
   {
     id: "7",
     question: "Какая ваша любимая книга?",
-    answerType: "text",
+    answerType: AnswerType.TEXT,
+    answerOptions: [],
   },
   {
     id: "8",
     question: "Какая ваша любимая еда?",
-    answerType: "single",
+    answerType: AnswerType.SINGLE,
     answerOptions: ["Пицца", "Суп", "Салат", "Горячее", "Десерт"],
   },
   {
     id: "9",
     question: "Какая ваша любимая игра?",
-    answerType: "single",
+    answerType: AnswerType.SINGLE,
     answerOptions: [
       "Fortnite",
       "Minecraft",
@@ -90,7 +94,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "10",
     question: "Какие ваши любимые игры?",
-    answerType: "multiple",
+    answerType: AnswerType.MULTIPLE,
     answerOptions: [
       "Fortnite",
       "Minecraft",
@@ -103,7 +107,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "11",
     question: "Какие из этих фильмов вы видели?",
-    answerType: "multiple",
+    answerType: AnswerType.MULTIPLE,
     answerOptions: [
       "Индиана Джонс",
       "Пятый элемент",
@@ -115,7 +119,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "12",
     question: "Какие из этих языков вы знаете?",
-    answerType: "multiple",
+    answerType: AnswerType.MULTIPLE,
     answerOptions: [
       "Английский",
       "Русский",
@@ -129,13 +133,13 @@ export const QUESTIONS: Question[] = [
   {
     id: "13",
     question: "Какие из этих животных вы любите?",
-    answerType: "multiple",
+    answerType: AnswerType.MULTIPLE,
     answerOptions: ["Собаки", "Кошки", "Коты", "Ослы", "Заяц", "Лев", "Тигр"],
   },
   {
     id: "14",
     question: "Какие из этих стран вы посетили?",
-    answerType: "multiple",
+    answerType: AnswerType.MULTIPLE,
     answerOptions: [
       "США",
       "Австралия",

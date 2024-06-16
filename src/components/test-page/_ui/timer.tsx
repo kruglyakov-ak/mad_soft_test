@@ -24,7 +24,7 @@ const Timer: FC<ITimerProps> = ({ deadline }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const timer = `${minutes === 0 ? "00" : minutes}:${seconds === 0 ? "00" : seconds}`;
+  const timer = `${minutes === 0 ? "00" : minutes < 10 && minutes !== 0 ? "0" : ""}${minutes}:${seconds === 0 ? "00" : seconds < 10 && seconds !== 0 ? "0" : ""}${seconds}`;
 
   return (
     <div className="w-12 h-6 text-sm flex pl-1 items-center border border-gray-400 rounded-sm">
