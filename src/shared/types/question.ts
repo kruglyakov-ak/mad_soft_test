@@ -1,6 +1,6 @@
 export const enum AnswerType {
-  SINGLE = "single",
-  MULTIPLE = "multiple",
+  RADIO = "radio",
+  CHECKBOX = "checkbox",
   TEXT = "text",
   STRING = "string",
 }

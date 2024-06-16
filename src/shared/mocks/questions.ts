@@ -2,9 +2,15 @@ import { AnswerType, Question } from "../types/question";
 
 export const QUESTIONS: Question[] = [
   {
+    id: "4",
+    question: "Какой ваш любимый фильм?",
+    answerType: AnswerType.STRING,
+    answerOptions: [],
+  },
+  {
     id: "1",
     question: "Какой день недели?",
-    answerType: AnswerType.SINGLE,
+    answerType: AnswerType.RADIO,
     answerOptions: [
       "Понедельник",
       "Вторник",
@@ -18,7 +24,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "2",
     question: "Какой месяц?",
-    answerType: AnswerType.SINGLE,
+    answerType: AnswerType.RADIO,
     answerOptions: [
       "Январь",
       "Февраль",
@@ -37,7 +43,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "3",
     question: "Какой ваш любимый цвет?",
-    answerType: AnswerType.SINGLE,
+    answerType: AnswerType.RADIO,
     answerOptions: [
       "Красный",
       "Синий",
@@ -48,12 +54,7 @@ export const QUESTIONS: Question[] = [
       "Черный",
     ],
   },
-  {
-    id: "4",
-    question: "Какой ваш любимый фильм?",
-    answerType: AnswerType.STRING,
-    answerOptions: [],
-  },
+
   {
     id: "5",
     question: "Какой ваш любимый инструмент?",
@@ -75,13 +76,13 @@ export const QUESTIONS: Question[] = [
   {
     id: "8",
     question: "Какая ваша любимая еда?",
-    answerType: AnswerType.SINGLE,
+    answerType: AnswerType.RADIO,
     answerOptions: ["Пицца", "Суп", "Салат", "Горячее", "Десерт"],
   },
   {
     id: "9",
     question: "Какая ваша любимая игра?",
-    answerType: AnswerType.SINGLE,
+    answerType: AnswerType.RADIO,
     answerOptions: [
       "Fortnite",
       "Minecraft",
@@ -94,7 +95,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "10",
     question: "Какие ваши любимые игры?",
-    answerType: AnswerType.MULTIPLE,
+    answerType: AnswerType.CHECKBOX,
     answerOptions: [
       "Fortnite",
       "Minecraft",
@@ -107,7 +108,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "11",
     question: "Какие из этих фильмов вы видели?",
-    answerType: AnswerType.MULTIPLE,
+    answerType: AnswerType.CHECKBOX,
     answerOptions: [
       "Индиана Джонс",
       "Пятый элемент",
@@ -119,7 +120,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "12",
     question: "Какие из этих языков вы знаете?",
-    answerType: AnswerType.MULTIPLE,
+    answerType: AnswerType.CHECKBOX,
     answerOptions: [
       "Английский",
       "Русский",
@@ -133,13 +134,13 @@ export const QUESTIONS: Question[] = [
   {
     id: "13",
     question: "Какие из этих животных вы любите?",
-    answerType: AnswerType.MULTIPLE,
+    answerType: AnswerType.CHECKBOX,
     answerOptions: ["Собаки", "Кошки", "Коты", "Ослы", "Заяц", "Лев", "Тигр"],
   },
   {
     id: "14",
     question: "Какие из этих стран вы посетили?",
-    answerType: AnswerType.MULTIPLE,
+    answerType: AnswerType.CHECKBOX,
     answerOptions: [
       "США",
       "Австралия",
