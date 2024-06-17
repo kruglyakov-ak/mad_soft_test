@@ -34,7 +34,8 @@ jobs:
 
       - name: Fix permissions
         run: |
-          chmod -c -R +rX "_site/" | while read line; do
+          mkdir -p "./out"
+          chmod -c -R +rX "./out" | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
 
