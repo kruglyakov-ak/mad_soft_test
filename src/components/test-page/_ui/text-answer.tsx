@@ -17,7 +17,7 @@ import { Button } from "@/shared/ui/button";
 import { Textarea } from "@/shared/ui/textarea";
 
 interface ITextAnswerProps {
-  qestion: string;
+  question: string;
   id: string;
   setCurrentQuestion: () => void;
 }
@@ -36,7 +36,7 @@ const FormSchema = z.object({
 const TextAnswer: FC<ITextAnswerProps> = ({
   id,
   setCurrentQuestion,
-  qestion,
+  question,
 }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -58,7 +58,7 @@ const TextAnswer: FC<ITextAnswerProps> = ({
           name="answer"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{qestion}</FormLabel>
+              <FormLabel>{question}</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Введите ответ"

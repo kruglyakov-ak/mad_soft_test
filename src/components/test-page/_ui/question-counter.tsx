@@ -3,7 +3,8 @@ import { cn } from "@/shared/ui/utils";
 import { FC } from "react";
 
 const QuestionCounter: FC = () => {
-  const { questions, currentQuestion } = useAppSelector(({ test }) => test);
+  const questions = useAppSelector(({ test }) => test.questions);
+  const currentQuestion = useAppSelector(({ test }) => test.currentQuestion);
 
   return (
     <div className="w-full flex gap-1">
@@ -16,7 +17,7 @@ const QuestionCounter: FC = () => {
               ? "bg-red-800"
               : currentQuestion < index
                 ? "bg-gray-200"
-                : "bg-black",
+                : "bg-black"
           )}
         />
       ))}

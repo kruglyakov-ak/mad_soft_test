@@ -36,7 +36,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
       case AnswerType.CHECKBOX:
         return (
           <CheckboxAnswer
-            qestion={question}
+            question={question}
             answers={answers}
             id={id}
             setCurrentQuestion={setCurrentQuestion}
@@ -46,7 +46,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
         return (
           <StringAnswer
             id={id}
-            qestion={question}
+            question={question}
             setCurrentQuestion={setCurrentQuestion}
           />
         );
@@ -54,7 +54,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
         return (
           <TextAnswer
             id={id}
-            qestion={question}
+            question={question}
             setCurrentQuestion={setCurrentQuestion}
           />
         );

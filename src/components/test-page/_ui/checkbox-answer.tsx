@@ -16,14 +16,14 @@ import { Button } from "@/shared/ui/button";
 import { Checkbox } from "@/shared/ui/checkbox";
 
 interface ICheckboxAnswerProps {
-  qestion: string;
+  question: string;
   answers: string[];
   id: string;
   setCurrentQuestion: () => void;
 }
 
 const CheckboxAnswer: FC<ICheckboxAnswerProps> = ({
-  qestion,
+  question,
   answers,
   id,
   setCurrentQuestion,
@@ -55,7 +55,7 @@ const CheckboxAnswer: FC<ICheckboxAnswerProps> = ({
           render={() => (
             <FormItem>
               <div className="mb-4">
-                <FormLabel className="text-base">{qestion}</FormLabel>
+                <FormLabel className="text-base">{question}</FormLabel>
               </div>
               {answers.map((item) => (
                 <FormField

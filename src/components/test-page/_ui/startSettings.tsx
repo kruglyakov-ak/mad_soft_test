@@ -29,7 +29,7 @@ const StartSettings: FC = () => {
 
   function onSubmit({ isTimer }: z.infer<typeof FormSchema>) {
     dispatch(setIsTimer(Boolean(isTimer)));
-    dispatch(setDeadline(Date.now() + 5 * 1000));
+    dispatch(setDeadline(Date.now() + 30 * 60 * 1000));
     dispatch(setIsStarted(true));
   }
 

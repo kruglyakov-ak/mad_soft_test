@@ -9,11 +9,11 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import StartSettings from "./_ui/startSettings";
 
 const TestPage: FC = () => {
-  const { isTimer, isStarted } = useAppSelector(({ test }) => test);
+  const isStarted = useAppSelector(({ test }) => test.isStarted);
 
   return isStarted ? (
     <Layout
-      timer={isTimer && <Timer />}
+      timer={<Timer />}
       questionCounter={<QuestionCounter />}
       questionList={<QuestionsList />}
     />

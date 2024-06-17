@@ -17,7 +17,7 @@ import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
 
 interface IStringAnswerProps {
-  qestion: string;
+  question: string;
   id: string;
   setCurrentQuestion: () => void;
 }
@@ -36,7 +36,7 @@ const FormSchema = z.object({
 const StringAnswer: FC<IStringAnswerProps> = ({
   id,
   setCurrentQuestion,
-  qestion,
+  question,
 }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -58,7 +58,7 @@ const StringAnswer: FC<IStringAnswerProps> = ({
           name="answer"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{qestion}</FormLabel>
+              <FormLabel>{question}</FormLabel>
               <FormControl>
                 <Input placeholder="Введите ответ" {...field} />
               </FormControl>

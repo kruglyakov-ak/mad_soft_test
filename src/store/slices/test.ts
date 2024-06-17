@@ -5,8 +5,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface TestState {
   isTimer: boolean;
   isStarted: boolean;
+  isTimeOver: boolean;
   deadline: number | null;
-  time: number | null;
   questions: Question[];
   currentQuestion: number;
 }
@@ -14,8 +14,8 @@ export interface TestState {
 const initialState: TestState = {
   isStarted: false,
   isTimer: false,
+  isTimeOver: false,
   deadline: null,
-  time: null,
   questions: QUESTIONS,
   currentQuestion: 0,
 };
@@ -33,14 +33,14 @@ export const test = createSlice({
     setDeadline: (state: TestState, action: PayloadAction<number | null>) => {
       state.deadline = action.payload;
     },
-    setTime: (state: TestState, action: PayloadAction<number | null>) => {
-      state.time = action.payload;
-    },
     setQuestions: (state: TestState, action: PayloadAction<Question[]>) => {
       state.questions = action.payload;
     },
     setCurrentQuestion: (state: TestState, action: PayloadAction<number>) => {
       state.currentQuestion = action.payload;
+    },
+    setIsTimeOver: (state: TestState, action: PayloadAction<boolean>) => {
+      state.isTimeOver = action.payload;
     },
     resetState: () => initialState,
   },
@@ -49,11 +49,11 @@ export const test = createSlice({
 export const {
   setIsTimer,
   setDeadline,
-  setTime,
   setQuestions,
   setCurrentQuestion,
   resetState,
   setIsStarted,
+  setIsTimeOver
 } = test.actions;
 
 export default test.reducer;
