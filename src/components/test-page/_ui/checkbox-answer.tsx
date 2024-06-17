@@ -97,7 +97,9 @@ const CheckboxAnswer: FC<ICheckboxAnswerProps> = ({
             </FormItem>
           )}
         />
-        <Button className="w-[200px] bg-red-800" type="submit">Ответить</Button>
+        <Button className="w-[200px] bg-red-800" type="submit">
+          Ответить
+        </Button>
       </form>
     </Form>
   );

@@ -8,7 +8,7 @@ const QuestionCounter: FC = () => {
 
   return (
     <div className="w-full flex gap-1">
-      {questions.map(({order}) => (
+      {questions.map(({ order }) => (
         <div
           key={order}
           className={cn(
@@ -17,7 +17,7 @@ const QuestionCounter: FC = () => {
               ? "bg-red-800"
               : currentQuestion < order
                 ? "bg-gray-200"
-                : "bg-black"
+                : "bg-black",
           )}
         />
       ))}

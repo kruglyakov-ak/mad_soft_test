@@ -16,7 +16,7 @@ const Timer: FC = () => {
     deadline ? new Date(deadline - Date.now()).getSeconds() : 0,
   );
 
-  const getTime = useCallback(() => {   
+  const getTime = useCallback(() => {
     if (!deadline) return;
 
     const time = new Date(deadline - Date.now());

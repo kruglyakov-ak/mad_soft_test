@@ -39,7 +39,7 @@ const TextAnswer: FC<ITextAnswerProps> = ({
   id,
   setCurrentQuestion,
   question,
-  order
+  order,
 }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),

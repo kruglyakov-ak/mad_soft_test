@@ -14,7 +14,7 @@ export const QUESTIONS: Question[] = [
       "Суббота",
       "Воскресенье",
     ],
-    order: 1
+    order: 1,
   },
   {
     id: "10",
@@ -28,21 +28,21 @@ export const QUESTIONS: Question[] = [
       "Roblox",
       "Apex Legends",
     ],
-    order: 2
+    order: 2,
   },
   {
     id: "6",
     question: "Какая ваша любимая музыка?",
     answerType: AnswerType.TEXT,
     answerOptions: [],
-    order: 3
+    order: 3,
   },
   {
     id: "4",
     question: "Какой ваш любимый фильм?",
     answerType: AnswerType.STRING,
     answerOptions: [],
-    order: 4
+    order: 4,
   },
   {
     id: "2",
@@ -62,7 +62,7 @@ export const QUESTIONS: Question[] = [
       "Ноябрь",
       "Декабрь",
     ],
-    order: 5
+    order: 5,
   },
   {
     id: "3",
@@ -77,7 +77,7 @@ export const QUESTIONS: Question[] = [
       "Белый",
       "Черный",
     ],
-    order: 6
+    order: 6,
   },
 
   {
@@ -85,21 +85,21 @@ export const QUESTIONS: Question[] = [
     question: "Какой ваш любимый инструмент?",
     answerType: AnswerType.STRING,
     answerOptions: [],
-    order: 7
+    order: 7,
   },
   {
     id: "7",
     question: "Какая ваша любимая книга?",
     answerType: AnswerType.TEXT,
     answerOptions: [],
-    order: 8
+    order: 8,
   },
   {
     id: "8",
     question: "Какая ваша любимая еда?",
     answerType: AnswerType.RADIO,
     answerOptions: ["Пицца", "Суп", "Салат", "Горячее", "Десерт"],
-    order: 9
+    order: 9,
   },
   {
     id: "9",
@@ -113,7 +113,7 @@ export const QUESTIONS: Question[] = [
       "Roblox",
       "Apex Legends",
     ],
-    order: 10
+    order: 10,
   },
   {
     id: "11",
@@ -126,7 +126,7 @@ export const QUESTIONS: Question[] = [
       "Город грехов",
       "Зеленая миля",
     ],
-    order: 11
+    order: 11,
   },
   {
     id: "12",
@@ -141,14 +141,14 @@ export const QUESTIONS: Question[] = [
       "Итальянский",
       "Китайский",
     ],
-    order: 12
+    order: 12,
   },
   {
     id: "13",
     question: "Какие из этих животных вы любите?",
     answerType: AnswerType.CHECKBOX,
     answerOptions: ["Собаки", "Кошки", "Коты", "Ослы", "Заяц", "Лев", "Тигр"],
-    order: 13
+    order: 13,
   },
   {
     id: "14",
@@ -166,6 +166,6 @@ export const QUESTIONS: Question[] = [
       "Япония",
       "Бразилия",
     ],
-    order: 14
+    order: 14,
   },
 ];

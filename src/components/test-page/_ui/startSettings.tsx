@@ -70,7 +70,9 @@ const StartSettings: FC = () => {
                   </FormItem>
                 )}
               />
-              <Button className="w-[200px] bg-red-800" type="submit">Начать тест</Button>
+              <Button className="w-[200px] bg-red-800" type="submit">
+                Начать тест
+              </Button>
             </form>
           </Form>
         </CardContent>

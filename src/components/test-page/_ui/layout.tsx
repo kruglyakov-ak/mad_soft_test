@@ -17,7 +17,7 @@ const Layout: FC<ILayoutProps> = ({ timer, questionCounter, questionList }) => {
       <CardHeader>
         <div className="flex gap-3 align-items-center">
           <CardTitle>Тестирование</CardTitle>
-          {!isTestOver && !isTimeOver && timer} 
+          {!isTestOver && !isTimeOver && timer}
         </div>
 
         {questionCounter}
