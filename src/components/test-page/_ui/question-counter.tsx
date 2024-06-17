@@ -8,14 +8,14 @@ const QuestionCounter: FC = () => {
 
   return (
     <div className="w-full flex gap-1">
-      {questions.map((_, index) => (
+      {questions.map(({order}) => (
         <div
-          key={index}
+          key={order}
           className={cn(
             "w-full h-2",
-            currentQuestion === index
+            currentQuestion === order
               ? "bg-red-800"
-              : currentQuestion < index
+              : currentQuestion < order
                 ? "bg-gray-200"
                 : "bg-black"
           )}

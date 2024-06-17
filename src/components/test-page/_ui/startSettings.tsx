@@ -15,7 +15,7 @@ import {
   FormLabel,
 } from "@/shared/ui/form";
 import { FC } from "react";
-import { setDeadline, setIsStarted, setIsTimer } from "@/store/slices/test";
+import { TestState, setDeadline, setIsStarted } from "@/store/slices/test";
 
 const StartSettings: FC = () => {
   const dispatch = useAppDispatch();
@@ -28,9 +28,17 @@ const StartSettings: FC = () => {
   });
 
   function onSubmit({ isTimer }: z.infer<typeof FormSchema>) {
-    dispatch(setIsTimer(Boolean(isTimer)));
-    dispatch(setDeadline(Date.now() + 30 * 60 * 1000));
+    isTimer && dispatch(setDeadline(Date.now() + 30 * 60 * 1000));
     dispatch(setIsStarted(true));
+
+    localStorage.setItem(
+      "test",
+      JSON.stringify({
+        ...JSON.parse(localStorage.getItem("test") as string),
+        isStarted: true,
+        deadline: isTimer ? Date.now() + 30 * 60 * 1000 : null,
+      } as TestState),
+    );
   }
 
   return (
@@ -43,7 +51,7 @@ const StartSettings: FC = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-6 flex flex-col"
+              className="space-y-6 flex flex-col items-center"
             >
               <FormField
                 control={form.control}
@@ -62,7 +70,7 @@ const StartSettings: FC = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Начать тест</Button>
+              <Button className="w-[200px] bg-red-800" type="submit">Начать тест</Button>
             </form>
           </Form>
         </CardContent>

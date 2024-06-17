@@ -14,11 +14,14 @@ import {
 } from "@/shared/ui/form";
 import { Button } from "@/shared/ui/button";
 import { Checkbox } from "@/shared/ui/checkbox";
+import { TestState } from "@/store/slices/test";
+import { saveAnswerToLocalStorage } from "@/shared/lib/utils";
 
 interface ICheckboxAnswerProps {
   question: string;
   answers: string[];
   id: string;
+  order: number;
   setCurrentQuestion: () => void;
 }
 
@@ -26,6 +29,7 @@ const CheckboxAnswer: FC<ICheckboxAnswerProps> = ({
   question,
   answers,
   id,
+  order,
   setCurrentQuestion,
 }) => {
   const FormSchema = z.object({
@@ -42,7 +46,7 @@ const CheckboxAnswer: FC<ICheckboxAnswerProps> = ({
   });
 
   function onSubmit({ answer }: z.infer<typeof FormSchema>) {
-    console.log("question-" + id, answer);
+    saveAnswerToLocalStorage({ questionId: id, answer, order });
     setCurrentQuestion();
   }
 
@@ -93,7 +97,7 @@ const CheckboxAnswer: FC<ICheckboxAnswerProps> = ({
             </FormItem>
           )}
         />
-        <Button type="submit">Ответить</Button>
+        <Button className="w-[200px] bg-red-800" type="submit">Ответить</Button>
       </form>
     </Form>
   );

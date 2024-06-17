@@ -13,6 +13,7 @@ interface IQuestionItemProps {
   answerType: string;
   answers: string[];
   setCurrentQuestion: () => void;
+  order: number;
 }
 
 const QuestionItem: FC<IQuestionItemProps> = ({
@@ -21,6 +22,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
   question,
   setCurrentQuestion,
   id,
+  order,
 }) => {
   function getAnswersComponentByType(): ReactNode {
     switch (answerType) {
@@ -31,6 +33,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
             id={id}
             setCurrentQuestion={setCurrentQuestion}
             answers={answers as [string, ...string[]]}
+            order={order}
           />
         );
       case AnswerType.CHECKBOX:
@@ -40,6 +43,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
             answers={answers}
             id={id}
             setCurrentQuestion={setCurrentQuestion}
+            order={order}
           />
         );
       case AnswerType.STRING:
@@ -48,6 +52,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
             id={id}
             question={question}
             setCurrentQuestion={setCurrentQuestion}
+            order={order}
           />
         );
       case AnswerType.TEXT:
@@ -56,6 +61,7 @@ const QuestionItem: FC<IQuestionItemProps> = ({
             id={id}
             question={question}
             setCurrentQuestion={setCurrentQuestion}
+            order={order}
           />
         );
       default:

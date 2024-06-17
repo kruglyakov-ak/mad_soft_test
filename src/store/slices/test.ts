@@ -1,32 +1,29 @@
-import { QUESTIONS } from "@/shared/mocks/questions";
 import { Question } from "@/shared/types/question";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface TestState {
-  isTimer: boolean;
   isStarted: boolean;
   isTimeOver: boolean;
+  isTestOver: boolean;
   deadline: number | null;
   questions: Question[];
   currentQuestion: number;
+  answers?: Record<string, { answer: string[]; order: number } | undefined>;
 }
 
-const initialState: TestState = {
+export const initialState: TestState = {
   isStarted: false,
-  isTimer: false,
   isTimeOver: false,
+  isTestOver: false,
   deadline: null,
-  questions: QUESTIONS,
-  currentQuestion: 0,
+  questions: [],
+  currentQuestion: 1,
 };
 
 export const test = createSlice({
   name: "test",
   initialState,
   reducers: {
-    setIsTimer: (state: TestState, action: PayloadAction<boolean>) => {
-      state.isTimer = action.payload;
-    },
     setIsStarted: (state: TestState, action: PayloadAction<boolean>) => {
       state.isStarted = action.payload;
     },
@@ -42,18 +39,21 @@ export const test = createSlice({
     setIsTimeOver: (state: TestState, action: PayloadAction<boolean>) => {
       state.isTimeOver = action.payload;
     },
+    setIsTestOver: (state: TestState, action: PayloadAction<boolean>) => {
+      state.isTestOver = action.payload;
+    },
     resetState: () => initialState,
   },
 });
 
 export const {
-  setIsTimer,
   setDeadline,
   setQuestions,
   setCurrentQuestion,
   resetState,
   setIsStarted,
-  setIsTimeOver
+  setIsTimeOver,
+  setIsTestOver,
 } = test.actions;
 
 export default test.reducer;

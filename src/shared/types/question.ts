@@ -5,9 +5,12 @@ export const enum AnswerType {
   STRING = "string",
 }
 
+export type QuestionId = string;
+
 export type Question = {
-  id: string;
+  id: QuestionId;
   question: string;
   answerType: AnswerType;
   answerOptions: string[];
+  order: number;
 };

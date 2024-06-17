@@ -15,10 +15,12 @@ import {
 } from "@/shared/ui/form";
 import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
+import { saveAnswerToLocalStorage } from "@/shared/lib/utils";
 
 interface IStringAnswerProps {
   question: string;
   id: string;
+  order: number;
   setCurrentQuestion: () => void;
 }
 
@@ -37,6 +39,7 @@ const StringAnswer: FC<IStringAnswerProps> = ({
   id,
   setCurrentQuestion,
   question,
+  order,
 }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -46,7 +49,7 @@ const StringAnswer: FC<IStringAnswerProps> = ({
   });
 
   function onSubmit({ answer }: z.infer<typeof FormSchema>) {
-    console.log("question-" + id, answer);
+    saveAnswerToLocalStorage({ questionId: id, answer, order });
     setCurrentQuestion();
   }
 

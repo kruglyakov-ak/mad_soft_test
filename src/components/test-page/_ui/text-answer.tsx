@@ -12,12 +12,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/shared/ui/form";  
+} from "@/shared/ui/form";
 import { Button } from "@/shared/ui/button";
 import { Textarea } from "@/shared/ui/textarea";
+import { saveAnswerToLocalStorage } from "@/shared/lib/utils";
 
 interface ITextAnswerProps {
   question: string;
+  order: number;
   id: string;
   setCurrentQuestion: () => void;
 }
@@ -37,6 +39,7 @@ const TextAnswer: FC<ITextAnswerProps> = ({
   id,
   setCurrentQuestion,
   question,
+  order
 }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -46,7 +49,7 @@ const TextAnswer: FC<ITextAnswerProps> = ({
   });
 
   function onSubmit({ answer }: z.infer<typeof FormSchema>) {
-    console.log("question-" + id, answer);
+    saveAnswerToLocalStorage({ questionId: id, answer, order });
     setCurrentQuestion();
   }
 

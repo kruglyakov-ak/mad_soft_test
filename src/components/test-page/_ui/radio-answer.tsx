@@ -15,17 +15,20 @@ import {
 } from "@/shared/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/shared/ui/radio-group";
 import { Button } from "@/shared/ui/button";
+import { saveAnswerToLocalStorage } from "@/shared/lib/utils";
 
 interface IRadioAnswersProps {
   qestion: string;
   answers: [string, ...string[]];
   id: string;
+  order: number;
   setCurrentQuestion: () => void;
 }
 
 const RadioAnswers: FC<IRadioAnswersProps> = ({
   qestion,
   answers,
+  order,
   id,
   setCurrentQuestion,
 }) => {
@@ -40,7 +43,7 @@ const RadioAnswers: FC<IRadioAnswersProps> = ({
   });
 
   function onSubmit({ answer }: z.infer<typeof FormSchema>) {
-    console.log("question-" + id, answer);
+    saveAnswerToLocalStorage({ questionId: id, answer, order });
     setCurrentQuestion();
   }
 
